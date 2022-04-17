@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face{
+  font-family: a_atomic_md;
+  src: url("../images/aAtomicMd.otf") format("opentype");
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-family: a_atomic_md;
+}
+body, html {
+  background-color: #0D0D0D;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+p {
+  color: white
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.column-stuff{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+input{
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  width: 14%;
+  border-radius: 10px;
+  outline: none;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid black;
+  transition: 0.45s;
+}
+select{
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  width: 16%;
+  border-radius: 10px;
+  outline: none;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid black;
+  transition: 0.45s;
+}
+span{
+ color: white;
+}
+a { 
+  text-decoration: none; 
+  color: white;
+}
+option{
+  width: 16%;
+  outline: none;
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid black;
+  transition: 0.45s;
+  text-align: center;
+}
+.long{
+  width: 20%;
+  background-color: #DB202C;
+}
+input:hover{
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 20px rgba(145, 92, 182, 1);
+  transform: scale(1.03);
+  transition: 0.45s;
+}
+select:hover{
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 20px rgba(145, 92, 182, 1);
+  transition: 0.45s;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: auto;
+}
+.column1{
+  width:25vw;
+  height: 100vh;
+  background-image: url("https://cdn.discordapp.com/attachments/964939723430846467/965050209958780948/movie_gen_banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.column2{
+  width:75vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+h3{
+  color: white
+}
+
+h2{
+  color: white
+}
+
+hl{
+  color: white
+}
+@media only screen and (max-width: 620px) {
+  input, select, .long{
+    width: 80%;
+    padding: 10px;
+  }
+  .column1{
+    display: none;
+  }
+  .column2{
+    width: 100%;
+  }
+  img{
+    width: 70%;
+    margin-bottom: 10px;
+  }
+}

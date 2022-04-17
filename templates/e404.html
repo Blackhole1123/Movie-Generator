@@ -1,0 +1,46 @@
+<style>
+@font-face{
+  font-family: a_atomic_md;
+  src: url("../static/images/aAtomicMd.otf") format("opentype");
+}
+* {
+  box-sizing: border-box;
+  color: white;
+  font-family: a_atomic_md;
+}
+body {
+  font-family: ;
+  background-color: #0D0D0D;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.center {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.button-center {
+  position: fixed; /* or absolute */
+  top: 65%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-65%, -50%);
+}
+  
+button, a:hover{
+  transform: scale(1.04);
+  transition: 0.45s;
+    cursor: pointer;
+    }
+}
+</style>
+<h1 class="center">Page Not Found. Please go home and try another query.</h1>

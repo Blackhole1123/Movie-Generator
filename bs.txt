@@ -1,0 +1,84 @@
+
+'''
+def Generate_Movie(Rating = request.form['rating'], Genre = request.form['genre'], Year=request.form['year'], Language = request.form['language']):
+    filename = "mymoviedb.csv"
+    df = pandas.read_csv(filename, lineterminator='\n')
+    
+    #Changing Variables
+    Year = str(Year)
+    Rating = float(Rating)
+    #Sorting Rating
+    def filter_rating(s, ch):
+        return [i for i, ltr in enumerate(s) if ltr >= ch]
+    sort_rating = ((df['Vote_Average']).where((df['Vote_Average']>=Rating)))
+
+    #Sorting Genre
+    def genre_conv(series):
+        return (Genre) in (str(series))
+    def filter_genre(s):
+        return [i for i, ltr in enumerate(s) if (Genre) in (str(ltr))]
+    sort_genre = ((df['Genre']).where(((df['Genre'].apply(genre_conv)))))
+
+    #Sorting Year
+    def year_conv(series):
+        return ((str(series).split("-")[0]) == Year)
+    def filter_year(s):
+        return [i for i, ltr in enumerate(s) if (str(ltr)).split("-")[0] == Year]
+    sort_year = ((df['Release_Date']).where(((df['Release_Date'].apply(year_conv)))))
+
+    #Sorting Year
+    def lang_conv(series):
+        return (str(series) == Language)
+    def filter_lang(s):
+        return [i for i, ltr in enumerate(s) if (str(ltr) == Language)]
+    sort_lang = ((df['Original_Language']).where(((df['Original_Language'].apply(lang_conv)))))
+
+
+
+    try:
+        #Filtering Data
+        index_genre = set(filter_genre(sort_genre.to_list()))
+        index_rating = set(filter_rating(sort_rating.to_list(), Rating))
+        index_year = set(filter_year(sort_year.to_list()))
+        index_lang = set(filter_lang(sort_lang.to_list()))
+
+        #Finding Common Filtered Data in all Categories
+        common_index = index_genre.intersection(index_rating)
+        common_index = common_index.intersection(index_year)
+        common_index = common_index.intersection(index_lang)
+        final_indices = list(common_index)
+        RESULTS = []
+        #Adding the Dict type data to Results List
+        for item in final_indices:
+            RESULTS.append(df.loc[item].to_dict())
+        return RESULTS
+
+    except Exception:
+        #Returning None if any error occurs
+        RESULTS = None
+        return None
+'''
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</style>
+</head>
+<body>
+<div class="row">
+    {% for i in range(3) %}
+      <div class="column">
+        <div class="card">
+          <br/>
+          <img src="{{coverart[i]}}" style="width: 200px; height: 300px; border-radius: 25px;">
+          <div class="contain_text">
+            <h2 class="">{{names[i]}}</h2>
+            <p class="">Rating: {{ratings[i]}}/10</p>
+            <p class="">Date Released: {{years_released[i]}}
+            <p class="" style="font-size: 12px;">{{descriptions[i]}}</p>
+            <p class="">Genres: {{genres[i]}}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
